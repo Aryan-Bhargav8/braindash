@@ -61,7 +61,7 @@ import { useRouter } from 'next/navigation';
 export default function Home() {
   const router= useRouter();
   const Handelgetstart= async () =>{
-    router.push('/pages')  }
+    router.push('/payment')  }
   return (
     <div>
       <div className="h-[100vh] w-full dark:bg-black  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
