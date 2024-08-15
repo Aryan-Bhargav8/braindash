@@ -28,7 +28,7 @@ const config: Config = {
         {
           "bg-grid": (value: any) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="80" height="80" fill="rgb(255,254,246)"><rect width="100%" height="100%" fill="rgb(255,254,246)"/><path stroke="yellow" d="M0 .5H31.5V32"/></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="180" height="180" fill="rgb(255,254,246)"><rect width="100%" height="100%" fill="rgb(255,254,246)"/><path stroke="rgba(4,4,4,0.1)" stroke-width="0.2" d="M0 .5H31.5V32"/></svg>`
             )}")`,
           }),
           "bg-grid-small": (value: any) => ({
