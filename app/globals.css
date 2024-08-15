@@ -1,12 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+  --bg-color: #FFFEF6;
+  --brown-color: #8E5500;
+  --cream-color: #FFEECA;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --background-rgb: 255,254, 246;
+}
+body {
+  background-color: var(--bg-color);
+}
+.container {
+  /* background-color: #FFFEF6; */
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* * {
+  box-sizing: border-box;
+} */
+
+body {
+  background-color: #FFFEF6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,16 +47,15 @@
   }
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
-  background: 
-  linear-gradient(
+  background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 @layer utilities {
   .text-balance {
