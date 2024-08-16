@@ -3,6 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/navigation';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+// import { Link, useLocation } from 'react-router-dom';
 import styles from '../../styles/Home.module.css';
 import {
   SignedIn,
@@ -12,6 +13,7 @@ import {
 
 export default function Payment() {
   const router = useRouter();
+  // const location = useLocation();
 
   const handleCards = async () => {
     router.push('/cards');
@@ -24,8 +26,14 @@ export default function Payment() {
   const handleStart = async () => {
     router.push('/start');
   };
+
+
+  const handlePricing = async () => {
+    router.push('/pricing');
+  };
   const handleSignUp = async () => {
     router.push('/sign-up');
+
   };
   return (
     <div className="bg-tertiary font-sans">
@@ -47,7 +55,7 @@ export default function Payment() {
           <li>
             <button
             onClick={handlePayment}
-            className="text-primary font-bold px-4 py-2 hover:border-b-2 hover:border-primary"
+            className="text-primary font-bold px-4 py-2 hover:border-b-2 hover:border-primary  "
             >
               Payment
             </button>
@@ -95,87 +103,99 @@ export default function Payment() {
   <section className="px-32 py-12">
     <h2 className="text-primary text-3xl sm:text-6xl font-bold text-white mb-12 text-center">Choose a Pricing Plan</h2>
     <div className="grid grid-cols-3 gap-12 mt-8">
-      <div className="bg-gradient-to-tr from-secondary to-tertiary bg-opacity-30 p-12 rounded-[2rem] shadow-lg ">
-        <h3 className="text-primary font-bold text-2xl mb-4">Monthly</h3>
-        <div className="text-4xl font-bold text-primary mb-4">$9</div>
-        <p className="text-primary mb-6">per month</p>
-        <ul className="text-primary mb-8">
-          <li className="flex items-center mb-2">
-            <svg className="w-6 h-6 mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <div className="bg-gradient-to-tr from-light to-secondary bg-opacity-20 p-12 rounded-[2rem] shadow-lg flex flex-col items-center">
+        
+        <h3 className="text-primary font-bold text-center text-2xl mb-4">Monthly</h3>
+        <div className="text-4xl font-bold text-center text-primary mb-4">$9</div>
+        <img src="/images/coin-payment.png" alt="Coin" className='hover:animate-bounce' />
+        <p className="text-primary mb-6 text-center text-xl">per month</p>
+        <ul className="text-primary mb-8 ">
+          <li className="flex items-center justify-center mb-2">
+            <svg className="w-6 h-6  mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             Feature 1
           </li>
-          <li className="flex items-center mb-2">
+          <li className="flex items-center mb-2 justify-center ">
             <svg className="w-6 h-6 mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             Feature 2
           </li>
-          <li className="flex items-center mb-2">
+          <li className="flex items-center mb-2 justify-center">
             <svg className="w-6 h-6 mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             Feature 3
           </li>
         </ul>
-        <button className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105">
+        <button
+        onClick={handlePricing}
+        className="bg-primary  font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105">
         Get Started
         </button>
       </div>
-      <div className="bg-gradient-to-br from-secondary to-tertiary bg-opacity-75 p-12 rounded-[2rem] shadow-lg border-2 border-primary">
-        <h3 className="text-primary font-bold text-2xl mb-4">Quarterly</h3>
-        <div className="text-4xl font-bold text-primary mb-4">$24</div>
-        <p className="text-primary mb-6">per quarter</p>
+
+      <div className="bg-gradient-to-br from-light to-septenary bg-opacity-75 p-12 rounded-[2rem] shadow-lg border-2 border-primary flex flex-col items-center">
+        <h3 className="text-primary font-bold text-2xl mb-4 text-center">Quarterly</h3>
+        <div className="text-4xl font-bold text-primary mb-4 text-center">$24</div>
+        <img src="/images/coin-payment.png" alt="Coin" className='hover:animate-bounce' />
+        <p className="text-primary mb-6 text-center text-xl">per quarter</p>
         <ul className="text-primary mb-8">
-          <li className="flex items-center mb-2">
+          <li className="flex items-center mb-2 justify-center">
             <svg className="w-6 h-6 mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             Feature 1
           </li>
-          <li className="flex items-center mb-2">
+          <li className="flex items-center mb-2 justify-center">
             <svg className="w-6 h-6 mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             Feature 2
           </li>
-          <li className="flex items-center mb-2">
+          <li className="flex items-center mb-2 justify-center">
             <svg className="w-6 h-6 mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             Feature 3
           </li>
         </ul>
-        <button className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105">
+        <button
+        onClick={handlePricing}
+        className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105">
           Get Started
         </button>
       </div>
-      <div className="bg-gradient-to-tl from-secondary to-tertiary bg-opacity-30 p-12 rounded-[2rem] shadow-lg">
-        <h3 className="text-primary font-bold text-2xl mb-4">Yearly</h3>
-        <div className="text-4xl font-bold text-primary mb-4">$90</div>
-        <p className="text-primary mb-6">per year</p>
+
+      <div className="bg-gradient-to-tl from-orange to-secondary bg-opacity-20 p-12 rounded-[2rem] shadow-lg flex flex-col items-center">
+        <h3 className="text-primary font-bold text-2xl mb-4 text-center">Yearly</h3>
+        <div className="text-4xl font-bold text-primary mb-4 text-center">$90</div>
+        <img src="/images/coin-payment.png" alt="Coin" className='hover:animate-bounce' />
+        <p className="text-primary mb-6 text-center text-xl">per year</p>
         <ul className="text-primary mb-8">
-          <li className="flex items-center mb-2">
+          <li className="flex items-center mb-2 justify-center">
             <svg className="w-6 h-6 mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             Feature 1
           </li>
-          <li className="flex items-center mb-2">
+          <li className="flex items-center mb-2 justify-center">
             <svg className="w-6 h-6 mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             Feature 2
           </li>
-          <li className="flex items-center mb-2">
+          <li className="flex items-center mb-2 justify-center">
             <svg className="w-6 h-6 mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             Feature 3
           </li>
         </ul>
-        <button className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105">
+        <button
+        onClick={handlePricing}
+        className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105">
         Get Started
         </button>
       </div>
