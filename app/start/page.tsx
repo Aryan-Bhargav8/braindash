@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import styles from '../../styles/Home.module.css';
 
-export default function start() {
+export default function Start() {
     const router = useRouter();
 
     const handleCards = async () => {
@@ -70,7 +70,7 @@ export default function start() {
         Introducing our state-of-the-art flashcard app
       </h1>
       <p className="text-senary text-xl text-center mb-8">
-        The ultimate tool to elevate your learning journey. Whether you're a
+        The ultimate tool to elevate your learning journey. Whether you&apos;re a
         student tackling a challenging course, a professional seeking to
         expand your expertise, or a lifelong learner driven by curiosity,
         our platform is designed to empower you every step of the way.
