@@ -88,6 +88,12 @@ import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 
+import {
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
+
 export default function Home() {
   const router = useRouter();
 
@@ -101,6 +107,9 @@ export default function Home() {
 
   const handleStart = async () => {
     router.push('/start');
+  };
+  const handleSignUp = async () => {
+    router.push('/sign-up');
   };
 
   return (
@@ -137,9 +146,15 @@ export default function Home() {
                 </button>
               </li>
               <li>
-                <button className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary  px-6 py-3 rounded-lg hover:scale-105">
-                  SignUp
+                <SignedOut>
+                <button  onClick={handleSignUp} className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary  px-6 py-3 rounded-lg hover:scale-105">
+                    SignUp
                 </button>
+                </SignedOut>
+                <SignedIn>
+                  <UserButton />
+                </SignedIn>
+                  
               </li>
             </ul>
           </nav>
@@ -154,7 +169,7 @@ export default function Home() {
         Introducing our state-of-the-art flashcard app
       </h1>
       <p className="text-senary text-xl text-center mb-8">
-        The ultimate tool to elevate your learning journey. Whether you're a
+        The ultimate tool to elevate your learning journey. Whether you&apos;re a
         student tackling a challenging course, a professional seeking to
         expand your expertise, or a lifelong learner driven by curiosity,
         our platform is designed to empower you every step of the way.

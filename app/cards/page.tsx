@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import styles from '../../styles/Home.module.css';
 
-export default function cards() {
+export default function Cards() {
     const router = useRouter();
 
     const handleCards = async () => {
@@ -62,7 +62,10 @@ export default function cards() {
         </div>
       </header>
 
+
     
+
+
 
      
 
