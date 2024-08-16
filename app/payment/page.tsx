@@ -5,11 +5,6 @@ import { useRouter } from 'next/navigation';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 // import { Link, useLocation } from 'react-router-dom';
 import styles from '../../styles/Home.module.css';
-import {
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
 
 export default function Payment() {
   const router = useRouter();
@@ -27,13 +22,8 @@ export default function Payment() {
     router.push('/start');
   };
 
-
   const handlePricing = async () => {
     router.push('/pricing');
-  };
-  const handleSignUp = async () => {
-    router.push('/sign-up');
-
   };
   return (
     <div className="bg-tertiary font-sans">
@@ -69,14 +59,9 @@ export default function Payment() {
             </button>
           </li>
           <li>
-          <SignedOut>
-                <button  onClick={handleSignUp} className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary  px-6 py-3 rounded-lg hover:scale-105">
-                    SignUp
-                </button>
-                </SignedOut>
-                <SignedIn>
-                  <UserButton />
-            </SignedIn>
+            <button className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary  px-6 py-3 rounded-lg hover:scale-105">
+              SignUp
+            </button>
           </li>
         </ul>
       </nav>
