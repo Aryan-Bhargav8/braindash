@@ -9,6 +9,7 @@ const config: Config = {
   ],
   theme: {
     colors: {
+      // 'primary': '#9f6e59',
       'primary': '#8E5500',
       'secondary': '#FFEECA',
       'tertiary': '#FFFEF6',
@@ -16,6 +17,10 @@ const config: Config = {
       'quinary': '##FFEECA',
       'senary': '#D27E00',
       'septenary': '#E2B996',
+      'octonary': '#ad7362',
+      'nonary': '#d39042',
+      'orange': '#e49e50',
+      'light': '#f6af5f'
       // Other colors...
     },
     extend: {
