@@ -4,6 +4,11 @@ import Head from 'next/head';
 import { useRouter } from 'next/navigation';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import styles from '../../styles/Home.module.css';
+import {
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 export default function Payment() {
   const router = useRouter();
@@ -18,6 +23,9 @@ export default function Payment() {
 
   const handleStart = async () => {
     router.push('/start');
+  };
+  const handleSignUp = async () => {
+    router.push('/sign-up');
   };
   return (
     <div className="bg-tertiary font-sans">
@@ -53,9 +61,14 @@ export default function Payment() {
             </button>
           </li>
           <li>
-            <button className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary  px-6 py-3 rounded-lg hover:scale-105">
-              SignUp
-            </button>
+          <SignedOut>
+                <button  onClick={handleSignUp} className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary  px-6 py-3 rounded-lg hover:scale-105">
+                    SignUp
+                </button>
+                </SignedOut>
+                <SignedIn>
+                  <UserButton />
+            </SignedIn>
           </li>
         </ul>
       </nav>
