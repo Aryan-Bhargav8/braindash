@@ -5,24 +5,29 @@ import Head from 'next/head';
 import { FaFacebookF, FaTwitter, FaInstagram, FaArrowLeft } from 'react-icons/fa';
 import styles from '../../styles/Home.module.css';
 
-export default function StartPage() {
-  const router = useRouter();
 
-  const handleCards = async () => {
-    router.push('/cards');
-  };
-
-  const handlePayment = async () => {
-    router.push('/payment');
-  };
-
-  const handleStart = async () => {
-    router.push('/start');
-  };
-=======
+import {
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 export default function Start() {
     const router = useRouter();
 
+    const handleCards = async () => {
+      router.push('/cards');
+    };
+  
+    const handlePayment = async () => {
+      router.push('/payment');
+    };
+  
+    const handleStart = async () => {
+      router.push('/start');
+    };
+    const handleSignUp = async () => {
+      router.push('/sign-up');
+    };
 
   return (
     <div className="bg-tertiary font-sans">
@@ -55,9 +60,14 @@ export default function Start() {
                 </button>
               </li>
               <li>
-                <button className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-6 py-3 rounded-lg hover:scale-105">
-                  SignUp
+              <SignedOut>
+                <button  onClick={handleSignUp} className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary  px-6 py-3 rounded-lg hover:scale-105">
+                    SignUp
                 </button>
+                </SignedOut>
+                <SignedIn>
+                  <UserButton />
+                </SignedIn>
               </li>
             </ul>
           </nav>
