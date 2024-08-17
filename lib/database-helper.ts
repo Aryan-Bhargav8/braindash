@@ -50,3 +50,34 @@ export async function currentUserProfile(redirect?: boolean) : Promise<ActiveUse
   });
 }
 
+
+type UserCard = {
+  ownerId: string;
+  cardId: string;
+  question: string;
+  answer: string;
+  deleted: boolean;
+  createdAt: Date;
+}
+
+//TODO: implement a function that finds all the user cards for the user with
+//      this specific id (make sure not to return cards that are deleted)
+export async function getAllUserCards(userId: string): Promise<UserCard[]> {
+  return [];
+}
+
+//TODO: implement a function that updates an existing user card, changing the question to newQuestion
+//      and answer to newAnswer. true if success (card is found and updated), false if failed for any reason
+export async function updateUserCard(userId: string, cardId: string, newQuestion: string, newAnswer: string): Promise<boolean> {
+  return false;
+}
+
+//TODO: just as the name says, delete the card with specific id, do it by setting the 'deleted' field to true.
+export async function deleteUserCard(userId: string, cardId: string): Promise<boolean> {
+  return false;
+}
+
+//TODO: creates a new UserCard.
+export async function addUserCard(userId: string, cardId: string, question: string, answer: string): Promise<UserCard | null> {
+  return null;
+}
