@@ -1,6 +1,4 @@
 import React from 'react';
-import {SignedIn, SignedOut, UserButton} from "@clerk/nextjs";
-import {FaFacebookF, FaInstagram, FaTwitter} from "react-icons/fa";
 import NavBar from "@/components/nav/nav-bar";
 import AppFooter from "@/components/nav/footer";
 
