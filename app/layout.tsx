@@ -4,9 +4,7 @@ import "./globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
 import React from "react";
-import {addToCollection, currentUserProfile} from "@/lib/database-helper";
-import {addDoc, collection} from "@firebase/firestore";
-import {db} from "@/lib/firebase";
+import {currentUserProfile} from "@/lib/database-helper";
 
 const inter = Inter({ subsets: ["latin"] });
 
