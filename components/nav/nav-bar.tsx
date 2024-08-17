@@ -106,7 +106,7 @@ const NavBar = () => {
                 <SignedOut>
                   <button onClick={handleSignIn}
                           className="block px-4 py-2 text-primary hover:bg-secondary hover:text-tertiary w-full text-left">
-                    SignUp
+                    Sign In
                   </button>
                 </SignedOut>
                 <SignedIn>
