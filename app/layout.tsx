@@ -24,18 +24,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
-  const user = await currentUserProfile();
-  console.log(user);
-
-  // const playlist = await createPlaylist(user?.userId ?? "" , "pls work");
-  // console.log(playlist);
-  //
-  const data = await getAllUserPlaylists(user?.userId ?? "");
-  console.log(data);
-  //const newPlayList = await deletePlaylist(user?.userId ?? "" , data[0].id);
-
   return (
     <ClerkProvider>
     <html lang="en">
