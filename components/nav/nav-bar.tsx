@@ -25,8 +25,8 @@ const NavBar = () => {
 
 
 
-  const handleSignUp = () => {
-    router.push('/sign-up');
+  const handleSignIn = () => {
+    router.push('/sign-in');
     setIsMenuOpen(false);
   };
   return (
@@ -61,9 +61,9 @@ const NavBar = () => {
             </li>
             <li>
               <SignedOut>
-                <button onClick={handleSignUp}
+                <button onClick={handleSignIn}
                         className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-6 py-3 rounded-lg hover:scale-105">
-                  SignUp
+                  Sign In
                 </button>
               </SignedOut>
               <SignedIn>
@@ -104,7 +104,7 @@ const NavBar = () => {
               </li>
               <li>
                 <SignedOut>
-                  <button onClick={handleSignUp}
+                  <button onClick={handleSignIn}
                           className="block px-4 py-2 text-primary hover:bg-secondary hover:text-tertiary w-full text-left">
                     SignUp
                   </button>
