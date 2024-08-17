@@ -26,8 +26,8 @@ export default function Home() {
     router.push('/start');
   };
 
-  const handleSignUp = async () => {
-    router.push('/sign-up');
+  const handleSignIn = async () => {
+    router.push('/sign-in');
   };
 
   const toggleMobileMenu = () => {
@@ -79,8 +79,8 @@ export default function Home() {
               </li>
               <li>
                 <SignedOut>
-                  <button onClick={handleSignUp} className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-4 md:px-6 py-3 rounded-lg hover:scale-105">
-                    SignUp
+                  <button onClick={handleSignIn} className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-4 md:px-6 py-3 rounded-lg hover:scale-105">
+                    Sign In
                   </button>
                 </SignedOut>
                 <SignedIn>
