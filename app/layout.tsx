@@ -4,7 +4,7 @@ import "./globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
 import React from "react";
-import {addToCollection} from "@/lib/database-helper";
+import {addToCollection, currentUserProfile} from "@/lib/database-helper";
 import {addDoc, collection} from "@firebase/firestore";
 import {db} from "@/lib/firebase";
 
@@ -20,6 +20,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const user = await currentUserProfile();
+  console.log(user);
 
   return (
     <ClerkProvider>
