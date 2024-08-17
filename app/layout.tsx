@@ -4,7 +4,13 @@ import "./globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
 import React from "react";
-import {currentUserProfile} from "@/lib/database-helper";
+import {
+  createPlaylist,
+  currentUserProfile,
+  deletePlaylist,
+  getAllUserPlaylists,
+  updatePlaylist
+} from "@/lib/database-helper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +25,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
+
   const user = await currentUserProfile();
   console.log(user);
+
+  // const playlist = await createPlaylist(user?.userId ?? "" , "pls work");
+  // console.log(playlist);
+  //
+  const data = await getAllUserPlaylists(user?.userId ?? "");
+  console.log(data);
+  //const newPlayList = await deletePlaylist(user?.userId ?? "" , data[0].id);
 
   return (
     <ClerkProvider>
