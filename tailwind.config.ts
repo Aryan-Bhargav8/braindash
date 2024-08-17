@@ -20,7 +20,8 @@ const config: Config = {
       'octonary': '#ad7362',
       'nonary': '#d39042',
       'orange': '#e49e50',
-      'light': '#f6af5f'
+      'light': '#f6af5f',
+      'error': '#ff1515'
       // Other colors...
     },
     extend: {
