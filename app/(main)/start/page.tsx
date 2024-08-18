@@ -23,22 +23,7 @@ export default function Start() {
         <meta name="description" content="Get started with BRAINDASH flashcards" />
       </Head>
 
-      {/* Hero Section */}
-      <section className="h-[calc(100vh-4rem)] bg-gradient-to-r from-yellow-400 to-orange-400 flex flex-col md:flex-row px-32">
-        <div className="w-full md:w-1/2 flex items-center justify-center">
-          <div className="text-center max-w-3xl px-4 md:px-0">
-            <h1 className="text-primary text-3xl sm:text-6xl font-bold text-white mb-8 text-center">
-              Introducing our state-of-the-art flashcard app
-            </h1>
-            <p className="text-senary text-xl text-center mb-8">
-              The ultimate tool to elevate your learning journey. Whether you&apos;re a student tackling a challenging course, a professional seeking to expand your expertise, or a lifelong learner driven by curiosity, our platform is designed to empower you every step of the way.
-            </p>
-            <button onClick={handleCards} className="bg-[#F2F4F3] font-bold text-orange border-2 hover:text-tertiary hover:bg-septenary px-6 py-3 rounded-lg hover:scale-105 transition-all duration-300">
-              Create Cards
-            </button>
-          </div>
-        </div>
-      </section>
+
 
       {/* Start Page Content */}
       <section className="py-20 px-8 md:px-16 lg:px-32">
