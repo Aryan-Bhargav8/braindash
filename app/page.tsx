@@ -80,7 +80,7 @@ export default function Home() {
               <li>
                 <SignedOut>
                   <button onClick={handleSignUp} className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-4 md:px-6 py-3 rounded-lg hover:scale-105">
-                    SignUp
+                    SignIn
                   </button>
                 </SignedOut>
                 <SignedIn>
