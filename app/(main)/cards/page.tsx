@@ -133,7 +133,7 @@ export default function Cards() {
               value={newFlashcard}
               onChange={(e) => setNewFlashcard(e.target.value)}
               placeholder="Enter new flashcard"
-              className="border-2 border-cards rounded p-2 w-full lg:w-auto"
+              className="border-2 border-cards rounded p-2 w-full lg:w-auto focus:border-primary text-primary focus:ring-primary focus:outline-none"
             />
             <Button
               onClick={handleAddFlashcard}
