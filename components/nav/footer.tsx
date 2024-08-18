@@ -35,8 +35,8 @@ const AppFooter = () => {
             </a>
           ))}
         </div>
-        <p className="text-sm mt-4">
-          &copy; 2023 All rights reserved.
+        <p className="text-sm mt-4 text-tertiary">
+        &copy; 2024 BRAINDASH. All rights reserved.
         </p>
         
       </div>
