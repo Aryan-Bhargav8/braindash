@@ -26,6 +26,10 @@ export default function Home() {
     router.push('/start');
   };
 
+  const handleLogoClick = () => {
+    router.push('/');
+  };
+
   const handleSignUp = async () => {
     router.push('/sign-up');
   };
@@ -39,7 +43,7 @@ export default function Home() {
       {/* Header */}
       <header className="bg-quaternary text-primary border-2 border-primary py-6 px-6 md:px-12 mt-6 md:mt-12 mb-6 md:mb-12 mx-4 md:mx-32 rounded-lg">
         <div className="container bg-quaternary mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="flex justify-between items-center w-full md:w-auto">
+          <button onClick={handleLogoClick} className="flex justify-between items-center w-full md:w-auto">
             <img src="/images/logo.webp" alt="Logo" className="h-12 md:h-16" />
             <button
               className="md:hidden text-primary text-2xl"
@@ -47,7 +51,7 @@ export default function Home() {
             >
               {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
             </button>
-          </div>
+          </button>
           <nav
             className={`${
               isMobileMenuOpen ? 'block' : 'hidden'
