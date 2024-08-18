@@ -150,10 +150,10 @@ export default function Cards() {
               <div className="relative">
                 <DialogTrigger asChild>
                   <div
-                    className="bg-white p-4 rounded-lg shadow-md border border-gray-200 cursor-pointer"
+                    className="bg-white border-cards p-4 rounded-lg shadow-md border  cursor-pointer"
                     onClick={() => handleCardClick(card)}
                   >
-                    <p className="text-sm font-medium mb-4 min-h-[3rem]">
+                    <p className="text-sm font-medium text-primary mb-4 min-h-[3rem]">
                       {card.question}
                     </p>
                   </div>
@@ -164,22 +164,22 @@ export default function Cards() {
                     size="icon"
                     onClick={() => openEditDialog(card)}
                   >
-                    <Pencil className="w-4 h-4" />
+                    <Pencil className="w-4 h-4 text-cards hover:text-primary" />
                   </Button>
                   <Button
                     variant="ghost"
                     size="icon"
                     onClick={() => handleDeleteFlashcard(card.question)}
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <Trash2 className="w-4 h-4 text-cards hover:text-primary" />
                   </Button>
                 </div>
               </div>
-              <DialogContent className="sm:max-w-[425px] backdrop-blur-md bg-opacity-80 bg-[#f5f1e9] shadow-lg">
+              <DialogContent className="sm:max-w-[425px] text-primary border-cards backdrop-blur-md bg-opacity-80 bg-[#f5f1e9] shadow-lg">
                 <DialogHeader>
                   <DialogTitle>Flip Cards</DialogTitle>
                 </DialogHeader>
-                <div className="mt-4">
+                <div className="mt-4 text-primary">
                   {isLoading ? (
                     <p>Loading content...</p>
                   ) : (
@@ -193,7 +193,7 @@ export default function Cards() {
       </div>
       {isEditing && (
         <Dialog open={isEditing} onOpenChange={closeEditDialog}>
-          <DialogContent className="sm:max-w-[425px] backdrop-blur-md bg-opacity-80 bg-[#f5f1e9] shadow-lg">
+          <DialogContent className="sm:max-w-[425px] text-primary backdrop-blur-md bg-opacity-80 bg-[#f5f1e9] shadow-lg">
             <DialogHeader>
               <DialogTitle>Edit Flashcard</DialogTitle>
             </DialogHeader>
@@ -202,20 +202,20 @@ export default function Cards() {
                 type="text"
                 value={editingQuestion}
                 onChange={(e) => setEditingQuestion(e.target.value)}
-                className="border rounded p-2 w-full"
+                className="border border-cards focus:border-primary text-primary focus:ring-primary focus:outline-none rounded p-2 w-full"
               />
             </div>
             <div className="flex justify-end mt-4 space-x-2">
               <Button
                 variant="outline"
                 onClick={closeEditDialog}
-                className="border-[#d3a265] text-[#d3a265] hover:bg-[#d3a265] hover:text-white"
+                className="border-cards text-cards hover:bg-cards hover:text-quaternary"
               >
                 Cancel
               </Button>
               <Button
                 onClick={handleEditSubmit}
-                className="bg-[#d3a265] text-white hover:bg-[#b5844b]"
+                className="bg-cards text-quaternary hover:bg-nonary"
               >
                 Save
               </Button>
