@@ -126,19 +126,19 @@ export default function Cards() {
     <div className="p-4 sm:p-6 bg-[#f5f1e9] min-h-screen">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-center mb-6 space-y-4 lg:space-y-0 lg:space-x-4">
-          <h1 className="text-2xl lg:text-3xl font-bold text-[#4a4a4a]">BRAINDASH</h1>
+          <h1 className="text-2xl lg:text-3xl font-bold text-cards">BRAINDASH</h1>
           <div className="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-2">
             <input
               type="text"
               value={newFlashcard}
               onChange={(e) => setNewFlashcard(e.target.value)}
               placeholder="Enter new flashcard"
-              className="border rounded p-2 w-full lg:w-auto"
+              className="border-2 border-cards rounded p-2 w-full lg:w-auto"
             />
             <Button
               onClick={handleAddFlashcard}
               variant="outline"
-              className="border-[#d3a265] text-[#d3a265] hover:bg-[#d3a265] hover:text-quaternary"
+              className="border-2 border-cards text-cards hover:bg-cards hover:text-quaternary"
             >
               Add Flashcard
             </Button>
