@@ -126,7 +126,7 @@ export default function Home() {
           <div className="w-full md:w-1/2 flex flex-col pl-0 md:pl-8 justify-center mt-4 md:mt-0 md:ml-8 ">
             <h2 className="text-primary text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-4 md:mb-8 text-center">About the App</h2>
             <p className="text-senary mb-4 md:mb-8 text-lg md:text-xl text-center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ex non sunt ipsum, odio alias expedita dicta perspiciatis vero ipsa beatae laboriosam, eveniet quas accusantium ab! Porro quisquam sit incidunt.
+              BRAINDASH is an innovative AI-powered flashcard platform that is transforming the way you study and retain information. Powered by cutting-edge artificial intelligence and a deep understanding of cognitive science, our platform is designed to help you learn more effectively and efficiently.            </p>
             </p>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function Home() {
                 <img src="/images/feature-1.jpg" alt="Feature 1" className="w-full h-full object-cover object-center" />
               </div>
               <div className='bg-septenary rounded-b-[.5rem] w-full h-1/4 flex items-center justify-center'>
-                <h3 className='text-secondary font-bold text-center'>Learning New Words</h3>
+                <h3 className='text-tertiary text-xl font-bold text-center'>Effortless Words Creation</h3>
               </div>
             </div>
             <div className='rounded-[.5rem] overflow-hidden grid grid-cols-1 grid-rows-2 gap-0 h-full'>
@@ -150,7 +150,7 @@ export default function Home() {
                 <img src="/images/feature-2.jpg" alt="Feature 2" className="w-full h-full object-cover object-center" />
               </div>
               <div className='bg-septenary rounded-b-[.5rem] w-full h-1/4 flex items-center justify-center'>
-                <h3 className='text-secondary font-bold text-center'>Learning New Words</h3>
+                <h3 className='text-tertiary text-xl font-bold text-center'>Gamified Learning</h3>
               </div>
             </div>
             <div className='rounded-[.5rem] overflow-hidden grid grid-cols-1 grid-rows-2 gap-0 h-full'>
@@ -158,7 +158,7 @@ export default function Home() {
                 <img src="/images/feature-4.jpg" alt="Feature 3" className="w-full h-full object-cover object-center" />
               </div>
               <div className='bg-septenary rounded-b-[.5rem] w-full h-1/4 flex items-center justify-center'>
-                <h3 className='text-secondary font-bold text-center'>Learning New Words</h3>
+                <h3 className='text-tertiary text-xl font-bold text-center'>Seamless Cross-Platform Access</h3>
               </div>
             </div>
           </div>
@@ -166,24 +166,44 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-white py-6 px-6 md:px-32 ">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-center md:text-left">
-            <p>&copy; {new Date().getFullYear()} BRAINDASH. All rights reserved.</p>
-          </div>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="hover:text-secondary">
-              <FaFacebookF />
-            </a>
-            <a href="https://www.twitter.com" target="_blank" rel="noreferrer" className="hover:text-secondary">
-              <FaTwitter />
-            </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="hover:text-secondary">
-              <FaInstagram />
-            </a>
-          </div>
+      <footer className="bg-primary text-white py-6 px-6 sm:px-8 lg:px-32 text-center mt-12 border-2 border-primary ">
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center mb-4">
+        <div>
+          {/* Logo goes here */}
+          <img src="/images/logo.webp" alt="BRAINDASH" className="h-16 w-full" />
         </div>
-      </footer>
+        <div className="flex justify-between items-center mb-4">
+          {/* Social media icons */}
+          <a href="#" className="text-tertiary hover:text-secondary mr-4">
+            <FaFacebookF className="text-2xl" />
+          </a>
+          <a href="#" className="text-tertiary hover:text-secondary mr-4">
+            <FaTwitter className="text-2xl" />
+          </a>
+          <a href="#" className="text-tertiary hover:text-secondary">
+            <FaInstagram className="text-2xl" />
+          </a>
+        </div>
+      </div>
+        
+        <div className="flex justify-center space-x-4">
+          {[
+            {Icon: FaFacebookF, url: 'https://www.facebook.com'},
+            {Icon: FaTwitter, url: 'https://www.twitter.com'},
+            {Icon: FaInstagram, url: 'https://www.instagram.com'},
+          ].map(({Icon, url}) => (
+            <a key={url} href={url} target="_blank" rel="noopener noreferrer">
+              <Icon className="text-primary hover:text-senary"/>
+            </a>
+          ))}
+        </div>
+        <p className="text-sm mt-4 text-tertiary">
+        &copy; 2024 BRAINDASH. All rights reserved.
+        </p>
+        
+      </div>
+    </footer>
     </div>
   );
 }
