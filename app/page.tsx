@@ -26,8 +26,8 @@ export default function Home() {
     router.push('/start');
   };
 
-  const handleSignIn = async () => {
-    router.push('/sign-in');
+  const handleSignUp = async () => {
+    router.push('/sign-up');
   };
 
   const toggleMobileMenu = () => {
@@ -79,8 +79,8 @@ export default function Home() {
               </li>
               <li>
                 <SignedOut>
-                  <button onClick={handleSignIn} className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-4 md:px-6 py-3 rounded-lg hover:scale-105">
-                    Sign In
+                  <button onClick={handleSignUp} className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-4 md:px-6 py-3 rounded-lg hover:scale-105">
+                    SignUp
                   </button>
                 </SignedOut>
                 <SignedIn>
@@ -127,7 +127,6 @@ export default function Home() {
             <h2 className="text-primary text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-4 md:mb-8 text-center">About the App</h2>
             <p className="text-senary mb-4 md:mb-8 text-lg md:text-xl text-center">
               BRAINDASH is an innovative AI-powered flashcard platform that is transforming the way you study and retain information. Powered by cutting-edge artificial intelligence and a deep understanding of cognitive science, our platform is designed to help you learn more effectively and efficiently.            </p>
-            </p>
           </div>
         </div>
       </section>
@@ -150,7 +149,7 @@ export default function Home() {
                 <img src="/images/feature-2.jpg" alt="Feature 2" className="w-full h-full object-cover object-center" />
               </div>
               <div className='bg-septenary rounded-b-[.5rem] w-full h-1/4 flex items-center justify-center'>
-                <h3 className='text-tertiary text-xl font-bold text-center'>Gamified Learning</h3>
+                <h3 className='text-tertiary text-xl  font-bold text-center'>Gamified Learning</h3>
               </div>
             </div>
             <div className='rounded-[.5rem] overflow-hidden grid grid-cols-1 grid-rows-2 gap-0 h-full'>
@@ -158,7 +157,7 @@ export default function Home() {
                 <img src="/images/feature-4.jpg" alt="Feature 3" className="w-full h-full object-cover object-center" />
               </div>
               <div className='bg-septenary rounded-b-[.5rem] w-full h-1/4 flex items-center justify-center'>
-                <h3 className='text-tertiary text-xl font-bold text-center'>Seamless Cross-Platform Access</h3>
+                <h3 className='text-tertiary text-xl  font-bold text-center'>Seamless Cross-Platform Access</h3>
               </div>
             </div>
           </div>
