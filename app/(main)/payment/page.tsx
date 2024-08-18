@@ -7,12 +7,58 @@ import {ArrowLeft} from "lucide-react";
 import Payment from "@/components/view/payment";
 import {Dialog, DialogContent} from "@/components/ui/dialog";
 
-
 export default function PaymentPage() {
-  const [payment , setPayment] = useState(0);
+  const [payment, setPayment] = useState(0);
   const handlePricing = (amount: number) => {
     setPayment(amount);
   };
+
+  const planFeatures = [
+    {
+      title: 'Monthly',
+      price: 9,
+      period: 'Per Month',
+      features: [
+        'Access to the full library of BRAINDASH flashcard decks',
+        'Personalized AI-driven study recommendations',
+        'Unlimited practice sessions and progress tracking',
+        'Mobile app access for on-the-go learning',
+        '1 free deck customization per month',
+        'Priority customer support',
+      ],
+    },
+    {
+      title: 'Quarterly',
+      price: 24,
+      period: 'Per Quarter',
+      features: [
+        'Access to the full library of BRAINDASH flashcard decks',
+        'Personalized AI-driven study recommendations',
+        'Unlimited practice sessions and progress tracking',
+        'Mobile app access for on-the-go learning',
+        '3 free deck customizations per quarter',
+        'Exclusive quarterly content updates',
+        'Advanced performance analytics and study insights',
+        'Access to premium study tools and techniques',
+      ],
+    },
+    {
+      title: 'Yearly',
+      price: 80,
+      period: 'Per Year',
+      features: [
+        'Access to the full library of BRAINDASH flashcard decks',
+        'Personalized AI-driven study recommendations',
+        'Unlimited practice sessions and progress tracking',
+        'Mobile app access for on-the-go learning',
+        'Unlimited free deck customizations',
+        'Personalized learning path recommendations',
+        'Early access to new product features',
+        'Dedicated account manager for tailored support',
+        'Annual subscription review and optimization',
+      ],
+    },
+  ];
 
   return (
     <main className="flex-grow">
@@ -49,25 +95,21 @@ export default function PaymentPage() {
           <h2 className="text-primary text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-12 text-center">Choose a
             Pricing Plan</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-            {[
-              {title: 'Monthly', price: 9, period: 'per month'},
-              {title: 'Quarterly', price: 24, period: 'per quarter'},
-              {title: 'Yearly', price: 80, period: 'per year'}
-            ].map((plan, index) => (
+            {planFeatures.map((plan, index) => (
               <div key={plan.title}
-                   className={`bg-gradient-to-tr from-light to-${index === 1 ? 'septenary' : 'secondary'} bg-opacity-20 p-8 rounded-[2rem] shadow-lg flex flex-col items-center ${index === 1 ? 'border-2 border-primary' : ''}`}>
+                   className={`bg-gradient-to-tr from-light  to-${index === 1 ? 'septenary' : 'octonary'} bg-opacity-30 p-8 rounded-[2rem] shadow-lg flex flex-col items-center ${index === 1 ? 'border-2 border-primary' : ''}`}>
                 <h3 className="text-primary font-bold text-2xl mb-4 text-center">{plan.title}</h3>
-                <div className="text-4xl font-bold text-primary mb-4 text-center">{plan.price}$</div>
+                <div className="text-4xl font-bold text-senary mb-4 text-center">{plan.price}$</div>
                 <img src="/images/coin-payment.png" alt="Coin" className="hover:animate-bounce"/>
-                <p className="text-primary mb-6 text-center text-xl">{plan.period}</p>
+                <p className="text-senary mb-6 text-center text-2xl font-bold">{plan.period}</p>
                 <ul className="text-primary mb-8">
-                  {[1, 2, 3].map((feature) => (
-                    <li key={feature} className="flex items-center mb-2 justify-center">
+                  {plan.features.map((feature, index) => (
+                    <li key={index} className="flex items-center mb-2 ">
                       <svg className="w-6 h-6 mr-2 text-senary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                            xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"/>
                       </svg>
-                      Feature {feature}
+                      {feature}
                     </li>
                   ))}
                 </ul>
@@ -80,20 +122,6 @@ export default function PaymentPage() {
             ))}
           </div>
         </section>
-
-        {/*<section className={cn(*/}
-        {/*  "absolute top-0 left-0 w-full",*/}
-        {/*  "px-4 sm:px-8 lg:px-32 py-12 transition-all opacity-0 translate-x-[20%] pointer-events-none",*/}
-        {/*  payment != 0 && "opacity-1 translate-x-[0%] pointer-events-auto"*/}
-        {/*)}>*/}
-        {/*  <div className={"flex flex-col container h-full"}>*/}
-        {/*    <button onClick={() => handlePricing(0)} className={"bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-6 py-4 rounded-lg transition-all duration-300 hover:scale-105 flex w-[160px]"}>*/}
-        {/*      <ArrowLeft/>*/}
-        {/*      <p className={"pl-2 font-semibold"}>Go back</p>*/}
-        {/*    </button>*/}
-        {/*    <Payment amount={payment} />*/}
-        {/*  </div>*/}
-        {/*</section>*/}
       </div>
     </main>
   );
