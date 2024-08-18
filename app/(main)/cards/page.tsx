@@ -138,7 +138,7 @@ export default function Cards() {
             <Button
               onClick={handleAddFlashcard}
               variant="outline"
-              className="border-[#d3a265] text-[#d3a265] hover:bg-[#d3a265] hover:text-white"
+              className="border-[#d3a265] text-[#d3a265] hover:bg-[#d3a265] hover:text-quaternary"
             >
               Add Flashcard
             </Button>
