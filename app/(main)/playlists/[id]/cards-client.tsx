@@ -483,14 +483,14 @@ const CardsClient = (
               )
             }}>
               <CardContent className={cn(
-                "p-4 group",
+                "p-4 group relative",
                 card.state != 'idle' && "opacity-20",
               )}>
                 <div className={cn(
-                  "absolute text-sm font-semibold opacity-0 transition-all pointer-events-none",
+                  "absolute inset-0 overflow-auto opacity-0 transition-all pointer-events-none p-4",
                   card.flipped && "opacity-100"
                 )}>
-                  {card.answer}
+                  <p className={"text-sm font-semibold "}>{card.answer}</p>
                 </div>
                 <div className={cn(
                   "flex flex-col w-full opacity-100 transition-all",
@@ -519,7 +519,12 @@ const CardsClient = (
                     )}
                   </div>
                 </div>
-                <div className="text-gray-500 mt-2 flex w-full items-center">
+                <div className={
+                  cn(
+                    "text-gray-500 mt-2 flex w-full items-center opacity-100 transition-all",
+                    card.flipped && "opacity-0"
+                  )
+                }>
                   <p className={"ml-auto text-black/50"}>{card.createdAt.toDateString()}</p>
                 </div>
               </CardContent>
