@@ -546,7 +546,7 @@ const CardsClient = (
           </div>
           <div className="flex items-center space-x-4">
 
-            <Button variant={"outline"} className={"text-green-900 font-semibold mr-4"} onClick={() => {
+            <Button variant={"outline"} className={"text-green-900 font-semibold mr-4"} disabled={playlistCards.length == 0} onClick={() => {
               setPracticeModeIndex(0);
             }}>
               <Hash className={"w-4 h-4"}/>
@@ -670,7 +670,7 @@ const CardsClient = (
 
         <div className={cn(
           "flex-1 w-full h-full flex-col items-center justify-center content-center hidden",
-          playlist?.cards.length == 0 && "flex"
+          playlistCards.length == 0 && "flex"
         )}>
           No cards, maybe start adding some by clicking the &quot;Add Cards&quot; button.
         </div>
