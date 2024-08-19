@@ -3,7 +3,7 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {Playlist} from "@/lib/database-helper";
 import {Button} from "@/components/ui/button";
-import {ChevronDownIcon, Edit2, Globe, LayoutGridIcon, ListIcon, Trash2} from "lucide-react";
+import {ChevronDownIcon,LayoutGridIcon, ListIcon} from "lucide-react";
 import {Input} from "@/components/ui/input";
 import {
   DropdownMenu,
@@ -14,8 +14,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import {Card, CardContent} from "@/components/ui/card";
-import Link from "next/link";
 import {
   Dialog,
   DialogContent,
@@ -24,14 +22,10 @@ import {
   DialogHeader,
   DialogTitle, DialogTrigger,
 } from "@/components/ui/dialog";
-import {Checkbox} from "@/components/ui/checkbox";
 import {Label} from "@/components/ui/label";
 
 import axios from "axios";
 import {cn} from "@/lib/utils";
-import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip";
-import Image from "next/image";
-import {useOrigin} from "@/hooks/use-origin";
 import PlaylistCard from "@/app/(main)/playlists/playlist-card";
 
 interface PlaylistsClientProps {

@@ -14,8 +14,8 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
 
-  const handleCards = async () => {
-    router.push('/cards');
+  const handlePlaylists = async () => {
+    router.push('/playlists');
   };
 
   const handlePayment = async () => {
@@ -60,7 +60,7 @@ export default function Home() {
             <ul className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0">
               <li>
                 <button 
-                  onClick={handleCards}
+                  onClick={handlePlaylists}
                   className="text-primary font-bold px-4 py-2 hover:border-b-2 hover:border-primary">
                   Cards
                 </button>

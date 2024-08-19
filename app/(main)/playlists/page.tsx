@@ -1,5 +1,5 @@
 import React from 'react';
-import {createPlaylist, currentUserProfile, getAllUserPlaylists} from "@/lib/database-helper";
+import {currentUserProfile, getAllUserPlaylists} from "@/lib/database-helper";
 import PlaylistsClient from "@/app/(main)/playlists/playlists-client";
 
 const Page = async () => {
