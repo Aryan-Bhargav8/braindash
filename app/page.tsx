@@ -121,7 +121,7 @@ export default function Home() {
       </div>
 
       {/* About The App */}
-      <section className="bg-white h-auto md:h-[calc(100vh-4rem)] flex flex-col md:flex-row px-6 md:px-32">
+      <section className="h-auto md:h-[calc(100vh-4rem)] flex flex-col md:flex-row px-6 md:px-32">
         <div className="container mx-auto px-6 py-8 md:py-16 flex flex-col md:flex-row">
           <div className="w-full md:w-1/2 bg-cover bg-center h-[30vh] md:h-full">
             <div className="w-full h-full bg-center bg-no-repeat bg-contain" style={{ backgroundImage: 'url("/images/about-cat.png")' }}>
