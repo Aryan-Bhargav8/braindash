@@ -108,7 +108,7 @@ export default function Home() {
             </p>
             <button
               onClick={handlePayment}
-              className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-4 md:px-6 py-3 rounded-lg hover:scale-105"
+              className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary hover:border-primary px-4 md:px-6 py-3 rounded-lg hover:scale-105"
             >
               Get Started
             </button>
