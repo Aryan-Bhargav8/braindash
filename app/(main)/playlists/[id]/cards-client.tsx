@@ -6,10 +6,6 @@ import {Button} from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle
 } from "@/components/ui/dialog";
 import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
@@ -20,12 +16,23 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import {ChevronDownIcon, Edit2, Globe, LayoutGridIcon, ListIcon, Trash2} from "lucide-react";
+import {
+  ChevronDownIcon, ChevronLeft,
+  ChevronLeftIcon, ChevronRight,
+  ChevronsLeft,
+  Edit2,
+  Globe,
+  Hash,
+  LayoutGridIcon,
+  ListIcon,
+  Trash2
+} from "lucide-react";
 import {Tabs, TabsList , TabsTrigger , TabsContent} from "@/components/ui/tabs";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {useAutoResize} from "@/hooks/use-auto-resize";
 import axios from "axios";
 import {cn} from "@/lib/utils";
+import {BiChevronsLeft} from "react-icons/bi";
 
 interface CardsClientProps {
   playlist: Playlist;
@@ -80,6 +87,8 @@ const CardsClient = (
   const [editMode , setEditMode] = useState(false);
 
   const [currentEditingCard , setCurrentEditingCard] = useState<StatefulCard | null>(null);
+
+  const [practiceModeIndex , setPracticeModeIndex] = useState<number | null>(null);
 
   const cards = useMemo(() => {
     return playlistCards.filter((card) => card.question.toLowerCase().includes(filterText.toLowerCase()))
@@ -259,6 +268,8 @@ const CardsClient = (
     }
   }
 
+  const practiceIndex = practiceModeIndex == null ? 0 : practiceModeIndex;
+
   return (
     <>
       <Dialog open={creatingCard} onOpenChange={ (e) => {if (!e) setCreatingCard(false)}}>
@@ -353,12 +364,127 @@ const CardsClient = (
         </DialogContent>
       </Dialog>
 
+      <Dialog open={practiceModeIndex != null} onOpenChange={ (e) => {if (!e) setPracticeModeIndex(null)}}>
+        <DialogContent>
+          <div className={"absolute inset-0 overflow-auto flex flex-row"}>
+            <div
+              className={"my-8 w-fit rounded-md items-center content-center px-1 hover:bg-neutral-700 transition-all group"}
+              onClick={
+                () => {
+                  setPracticeModeIndex((v) => {
+                    if (v == null) return 0;
+                    if (v - 1 < 0) {
+                      return playlistCards.length - 1;
+                    }
+                    return v - 1;
+                  });
+                }
+              }>
+              <ChevronLeft className={"group-hover:text-white"}/>
+            </div>
 
-      <Dialog open={currentEditingCard != null} onOpenChange={ (e) => {if (!e) setCurrentEditingCard(null)}}>
+            <div className={"flex-1"}/>
+
+            <div
+              className={"my-8 w-fit rounded-md items-center content-center px-1 hover:bg-neutral-700 transition-all group"}
+              onClick={
+                () => {
+                  setPracticeModeIndex((v) => {
+                    if (v == null) return 0;
+                    if (v + 1 >= playlistCards.length) {
+                      return 0;
+                    }
+                    return v + 1;
+                  });
+                }
+              }>
+              <ChevronRight className={"group-hover:text-white"}/>
+            </div>
+          </div>
+
+          <div className={"relative px-6 flex flex-col"}>
+            {
+              playlistCards.length && (
+                <Card className={"break-inside-avoid"} onClick={() => {
+                  setPlaylistCards(
+                    playlistCards.map(i => {
+                      if (i.id != playlistCards[practiceIndex].id) return i;
+                      return {
+                        ...i,
+                        flipped: !i.flipped,
+                      }
+                    })
+                  )
+                }}>
+                  <CardContent className={cn(
+                    "p-4 group relative",
+                    playlistCards[practiceIndex].state != 'idle' && "opacity-20",
+                  )}>
+                    <div className={cn(
+                      "absolute inset-0 overflow-auto opacity-0 transition-all pointer-events-none p-4",
+                      playlistCards[practiceIndex].flipped && "opacity-100"
+                    )}>
+                      <p className={"text-sm font-semibold "}>{playlistCards[practiceIndex].answer}</p>
+                    </div>
+                    <div className={cn(
+                      "flex flex-col w-full opacity-100 transition-all",
+                      playlistCards[practiceIndex].flipped && "opacity-0"
+                    )}>
+                      <p
+                        className="text-sm bg-transparent h-fit overflow-hidden pointer-events-none">{playlistCards[practiceIndex].question}</p>
+                      <div className={"ml-auto group-hover:opacity-100 opacity-0 transition-all flex flex-row"}>
+                        {editMode && (
+                          <>
+                            <Button size="icon" className="mr-2" variant={"ghost"}
+                                    disabled={playlistCards[practiceIndex].state != 'idle'} onClick={(e) => {
+                              e.stopPropagation();
+                              e.preventDefault();
+                              setCurrentEditingCard(playlistCards[practiceIndex]);
+                            }}>
+                              <Edit2 className="w-4 h-4 text-green-300"/>
+                            </Button>
+
+                            <Button size="icon" className="" variant={"ghost"}
+                                    disabled={playlistCards[practiceIndex].state != 'idle'} onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              deleteCard(playlistCards[practiceIndex].id);
+                            }}>
+                              <Trash2 className="w-4 h-4 text-red-400"/>
+                            </Button>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                    <div className={
+                      cn(
+                        "text-gray-500 mt-2 flex w-full items-center opacity-100 transition-all",
+                        playlistCards[practiceIndex].flipped && "opacity-0"
+                      )
+                    }>
+                      <p
+                        className={"ml-auto text-black/50"}>{playlistCards[practiceIndex].createdAt.toDateString()}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              )
+            }
+
+            <p className={"text-sm font-semibold text-neutral-400 mt-2"}>
+              Question {practiceIndex + 1} / {playlistCards.length}
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+
+      <Dialog open={currentEditingCard != null} onOpenChange={(e) => {
+        if (!e) setCurrentEditingCard(null)
+      }}>
         <DialogContent>
           <Card>
             <CardHeader>
-              <CardTitle>Card Details</CardTitle>
+            <CardTitle>Card Details</CardTitle>
               <CardDescription>
                 {"Type in the question and the answer that should exist on the card."}
               </CardDescription>
@@ -420,6 +546,13 @@ const CardsClient = (
           </div>
           <div className="flex items-center space-x-4">
 
+            <Button variant={"outline"} className={"text-green-900 font-semibold mr-4"} onClick={() => {
+              setPracticeModeIndex(0);
+            }}>
+              <Hash className={"w-4 h-4"}/>
+              Practice
+            </Button>
+
             { playlist.ownerId == userId &&
               <Button className={"text-white"} onClick={() => {
                 setError(null);
@@ -428,6 +561,8 @@ const CardsClient = (
                 Add Cards
               </Button>
             }
+
+
 
             <Input
               type="text"
