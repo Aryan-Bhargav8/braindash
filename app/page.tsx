@@ -62,7 +62,7 @@ export default function Home() {
                 <button 
                   onClick={handlePlaylists}
                   className="text-primary font-bold px-4 py-2 hover:border-b-2 hover:border-primary">
-                  Cards
+                  Playlists
                 </button>
               </li>
               <li>
