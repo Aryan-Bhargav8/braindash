@@ -420,12 +420,14 @@ const CardsClient = (
           </div>
           <div className="flex items-center space-x-4">
 
-            <Button className={"text-white"} onClick={() => {
-              setError(null);
-              setCreatingCard(true);
-            }}>
-              Add Cards
-            </Button>
+            { playlist.ownerId == userId &&
+              <Button className={"text-white"} onClick={() => {
+                setError(null);
+                setCreatingCard(true);
+              }}>
+                Add Cards
+              </Button>
+            }
 
             <Input
               type="text"
