@@ -92,13 +92,30 @@ export async function getAllUserPlaylists(userId: string): Promise<Playlist[]> {
   const querySnapshot = await getDocs(mQuery);
   return querySnapshot.docs.map((doc) => {
     const data = doc.data();
+
+    const cards = data.cards as any[];
+    const mCards = cards.map((e) => {
+      return {
+        id: e.id,
+        question: e.question,
+        answer: e.answer,
+        deleted: e.deleted,
+        createdAt: e.createdAt.toDate(),
+        playlistId: e.playlistId
+      } as UserCard;
+    })
+
+    const mFinalCards = mCards.filter((e) => {
+      return !e.deleted;
+    })
+
     return {
       id: doc.id,
       ownerId: userId,
       deleted: false,
       createdAt: data.createdAt.toDate(),
       name: data.name,
-      cards: data.cards,
+      cards: mFinalCards,
       private: data.private,
     }
   });
