@@ -138,7 +138,7 @@ export default function Home() {
       {/* Features */}
       <section className="py-8 md:py-16 px-6 md:px-32">
         <div className="container mx-auto px-6">
-          <h2 className="text-primary text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-4 md:mb-8 text-center">Features</h2>
+          <h2 className="text-primary text-2xl sm:text-4xl md:text-6xl font-bold  mb-4 md:mb-8 text-center">Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className='rounded-[.5rem] overflow-hidden grid grid-cols-1 grid-rows-2 gap-0 h-full'>
               <div className="w-full h-full">
