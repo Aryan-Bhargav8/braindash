@@ -115,7 +115,7 @@ export default function PaymentPage() {
                 </ul>
                 <button
                   onClick={() => handlePricing(plan.price * 100)}
-                  className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105">
+                  className="bg-primary font-bold text-tertiary border-2 hover:text-primary hover:bg-secondary hover:border-primary px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105">
                   Get Started
                 </button>
               </div>
