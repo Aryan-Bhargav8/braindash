@@ -477,7 +477,7 @@ const CardsClient = (
           "flex-1 w-full h-full flex-col items-center justify-center content-center hidden",
           playlist?.cards.length == 0 && "flex"
         )}>
-          No cards, maybe start adding some by clicking the &quot;Add Playlist&quot; button :)
+          No cards, maybe start adding some by clicking the &quot;Add Cards&quot; button.
         </div>
 
         </div>
