@@ -1,4 +1,4 @@
-'use client';
+'use client''use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import Head from 'next/head';
@@ -61,7 +61,7 @@ export default function Start() {
           <div className="relative w-full max-w-[900px] pt-[56.25%]">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
-              src="https://youtu.be/s9FWOl4GsSk?si=BXiu9W_u-WdlEw6S"
+              src="https://www.youtube.com/embed/DXTgLPZWk6w"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
