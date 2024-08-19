@@ -1,20 +1,23 @@
 import React from 'react';
 import NavBar from "@/components/nav/nav-bar";
 import AppFooter from "@/components/nav/footer";
+import {TooltipProvider} from "@/components/ui/tooltip";
 
 const Layout = (
   { children }: { children: React.ReactNode }
 ) => {
   return (
-    <div className="bg-tertiary font-sans min-h-screen flex flex-col">
-      {/* Header */}
-      <NavBar />
+    <TooltipProvider>
+      <div className="bg-tertiary font-sans min-h-screen flex flex-col">
+        {/* Header */}
+        <NavBar />
 
-      {children}
+        {children}
 
-      {/* Footer */}
-      <AppFooter/>
-    </div>
+        {/* Footer */}
+        <AppFooter/>
+      </div>
+    </TooltipProvider>
   );
 };
 

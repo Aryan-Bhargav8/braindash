@@ -11,7 +11,7 @@ import {
 //out: playlist object
 export async function POST(request: NextRequest) {
   try {
-    const { name } = await request.json();
+    const { name , isPrivate } = await request.json();
     const user = await currentUserProfile();
     if (!user) {
       return new NextResponse("Unauthorized" , {status: 401});
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
     const playlistName = name.trim();
 
-    const playlist = await createPlaylist(user.userId , playlistName);
+    const playlist = await createPlaylist(user.userId , playlistName , isPrivate);
 
     return NextResponse.json(playlist , {
       status: 200
@@ -60,7 +60,7 @@ export async function GET(request: NextRequest) {
 //out: playlist object
 export async function PATCH(request: NextRequest) {
   try {
-    const { id, newName } = await request.json();
+    const { id, newName , newPrivate } = await request.json();
     const user = await currentUserProfile();
     if (!user) {
       return new NextResponse("Unauthorized" , {status: 401});
@@ -72,7 +72,7 @@ export async function PATCH(request: NextRequest) {
 
     const newPlaylistName = newName.trim();
 
-    const playlist = await updatePlaylist(user.userId , id , newPlaylistName);
+    const playlist = await updatePlaylist(user.userId , id , newPlaylistName , newPrivate);
 
     if (!playlist) {
       return new NextResponse("Not Found" , {status: 320});
@@ -106,7 +106,7 @@ export async function DELETE(request: NextRequest) {
     const playlist = await deletePlaylist(user.userId , id);
 
     if (!playlist) {
-      return new NextResponse("Not Found" , {status: 320});
+      return new NextResponse("Not Found" , {status: 404});
     }
 
     return NextResponse.json({

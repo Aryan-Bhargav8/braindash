@@ -8,8 +8,8 @@ const NavBar = () => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleCards = () => {
-    router.push('/cards');
+  const handlePlaylists = () => {
+    router.push('/playlists');
     setIsMenuOpen(false);
   };
 
@@ -42,8 +42,8 @@ const NavBar = () => {
           <nav className="relative">
             <ul className="hidden lg:flex space-x-4">
               <li>
-                <button onClick={handleCards} className="text-primary  font-bold px-4 py-2 hover:border-b-2 hover:border-primary">
-                  Cards
+                <button onClick={handlePlaylists} className="text-primary  font-bold px-4 py-2 hover:border-b-2 hover:border-primary">
+                  Playlists
                 </button>
               </li>
               <li>
@@ -77,8 +77,8 @@ const NavBar = () => {
             {isMenuOpen && (
               <ul className="absolute right-0 mt-2 py-2 w-48 bg-quaternary border rounded-lg shadow-xl">
                 <li>
-                  <button onClick={handleCards} className="block px-4 py-2 text-primary hover:bg-secondary hover:text-tertiary w-full text-left">
-                    Cards
+                  <button onClick={handlePlaylists} className="block px-4 py-2 text-primary hover:bg-secondary hover:text-tertiary w-full text-left">
+                    Playlists
                   </button>
                 </li>
                 <li>
