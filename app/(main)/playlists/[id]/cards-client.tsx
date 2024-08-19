@@ -26,7 +26,6 @@ import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} f
 import {useAutoResize} from "@/hooks/use-auto-resize";
 import axios from "axios";
 import {cn} from "@/lib/utils";
-import {auth} from "@clerk/nextjs/server";
 
 interface CardsClientProps {
   playlist: Playlist;
@@ -134,10 +133,51 @@ const CardsClient = (
     setSubmitting(false);
   }
 
+  const generateCards = async (context: string, count: string) => {
+    setSubmitting(true);
+    try {
+      if (context.trim().length == 0) {
+        setError("Context cannot be empty");
+        setSubmitting(false);
+        return;
+      }
+
+      if (count.trim().length == 0) {
+        setError("Count cannot be empty");
+        setSubmitting(false);
+        return;
+      }
+
+      const res = await axios.post("/api/generate", {
+        playlist: playlist?.id,
+        count: parseInt(count.trim()),
+        topic: context.trim(),
+      })
+
+      const cards = res.data.data as any[];
+      const newList = playlistCards.map(e => e);
+      for (const card of cards){
+        newList.push({
+          ...card,
+          createdAt: new Date(card.createdAt),
+          state: "idle",
+          flipped: false
+        } as StatefulCard);
+      }
+
+      setPlaylistCards(newList);
+      setSubmitting(false);
+      setCreatingCard(false);
+    } catch (e) {
+      setError("Failed to create card, maybe check your internet ?");
+      console.log(e);
+    }
+    setSubmitting(false);
+  }
+
   const submitEdit = async (newQuestion: string, newAnswer: string) => {
     const currentId = currentEditingCard?.id;
     setCurrentEditingCard(null);
-    console.log("Editing: " + currentId);
 
     setPlaylistCards((current) => {
       return current.map((e) => {
@@ -288,11 +328,24 @@ const CardsClient = (
                   </div>
                   <div className="space-y-1">
                     <Label >Number of cards to generate</Label>
-                    <Input type="number" min={1} max={15}/>
+                    <Input type="number" min={1} max={15} ref={aiFieldCount}/>
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className={"text-white"} disabled={submitting}>Generate</Button>
+                  <Button
+                    className={"text-white"}
+                    disabled={submitting}
+                    onClick={() => {
+                      if (!autoResize2.ref?.current) {
+                        return;
+                      }
+                      generateCards(
+                        (autoResize2.ref?.current as HTMLTextAreaElement).value ?? "",
+                        aiFieldCount.current?.value ?? ""
+                      );
+
+                    }}
+                  >Generate</Button>
                 </CardFooter>
               </Card>
             </TabsContent>

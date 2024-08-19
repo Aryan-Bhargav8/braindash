@@ -408,3 +408,47 @@ export async function addUserCard(userId: string, playlistId: string, question: 
 
   return newCard;
 }
+
+export type CardData = {
+  question: string;
+  answer: string;
+}
+
+export async function addAllUserCard(userId: string, playlistId: string, cards: CardData[]): Promise<UserCard[] | null> {
+  const playlistRef = doc(db, "playlist", playlistId);
+  const playlistDoc = await getDoc(playlistRef);
+
+  if (!playlistDoc.exists()) {
+    return null;
+  }
+
+  const data = playlistDoc.data();
+
+  if (data.deleted) {
+    return null;
+  }
+
+  if (data.ownerId !== userId) {
+    return null;
+  }
+
+  let updatedCards = [...data.cards];
+  let newCards = [] as UserCard[];
+
+  for (const card of cards) {
+    const newCard: UserCard = {
+      id: uuidv4(), // Generate a unique ID for the new card
+      playlistId: playlistId,
+      question: card.question,
+      answer: card.answer,
+      deleted: false,
+      createdAt: new Date(),
+    };
+
+    updatedCards.push(newCard);
+    newCards.push(newCard as UserCard);
+  }
+  await updateDoc(playlistRef, { cards: updatedCards });
+
+  return newCards;
+}
