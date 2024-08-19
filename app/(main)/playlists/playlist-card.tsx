@@ -53,14 +53,14 @@ const PlaylistCard = (
         </div>
         <div className="text-gray-500 mt-2 flex w-full items-center content-center justify-center">
           {playlist.cards.length} items
-          <Tooltip>
+          <Tooltip delayDuration={100}>
             <TooltipContent>
               This play list is {playlist.private ? "private" : "public"}.
               <div className='inline-block ml-2 content-center items-center' onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
                 setCopy(true);
-                navigator.clipboard.writeText(`${origin}/${playlist.id}`);
+                navigator.clipboard.writeText(`${origin}/playlists/${playlist.id}`);
                 setTimeout(() => setCopy(false), 3000);
               }}>
                 <Image
