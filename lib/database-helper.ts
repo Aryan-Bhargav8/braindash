@@ -128,13 +128,17 @@ export async function getPlaylist(userId: string, playlistId: string): Promise<P
     } as UserCard;
   })
 
+  const mFinalCards = mCards.filter((e) => {
+    return !e.deleted;
+  })
+
   return {
     id: playlist.id,
     ownerId: userId,
     deleted: false,
     createdAt: data.createdAt.toDate(),
     name: data.name,
-    cards: mCards,
+    cards: mFinalCards,
     private: data.private,
   }
 }
@@ -191,13 +195,18 @@ export async function updatePlaylist(userId: string, playListId: string, newName
       playlistId: e.playlistId
     } as UserCard;
   })
+
+  const mFinalCards = mCards.filter((e) => {
+    return !e.deleted;
+  })
+
   return {
     id: updatedDoc.id,
     ownerId: userId,
     deleted: false,
     createdAt: data.createdAt.toDate(),
     name: data.name,
-    cards: mCards,
+    cards: mFinalCards,
     private: data.private,
   }
 }
