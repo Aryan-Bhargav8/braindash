@@ -151,7 +151,7 @@ export async function getPlaylist(userId: string, playlistId: string): Promise<P
 
   return {
     id: playlist.id,
-    ownerId: userId,
+    ownerId: data.ownerId,
     deleted: false,
     createdAt: data.createdAt.toDate(),
     name: data.name,
