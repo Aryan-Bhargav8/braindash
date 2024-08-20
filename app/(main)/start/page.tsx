@@ -61,7 +61,7 @@ export default function Start() {
           <div className="relative w-full max-w-[900px] pt-[56.25%]">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/DXTgLPZWk6w"
+              src="https://youtu.be/wBylS5jcg3c?si=yScQ-KvuiXdfdO0N"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
